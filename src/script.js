@@ -1,13 +1,13 @@
 function updateTime() {
-  // London
-  let londonElement = document.querySelector("#london");
-  if (londonElement) {
-    let londonDateElement = londonElement.querySelector(".date");
-    let londonTimeElement = londonElement.querySelector(".time");
-    let londonDateAndTime = moment().tz("Europe/London");
+  // Paris
+  let parisElement = document.querySelector("#paris");
+  if (parisElement) {
+    let parisDateElement = parisElement.querySelector(".date");
+    let parisTimeElement = parisElement.querySelector(".time");
+    let parisDateAndTime = moment().tz("Europe/paris");
 
-    londonDateElement.innerHTML = londonDateAndTime.format("MMMM Do YYYY");
-    londonTimeElement.innerHTML = londonDateAndTime.format(
+    parisDateElement.innerHTML = parisDateAndTime.format("MMMM Do YYYY");
+    parisTimeElement.innerHTML = parisDateAndTime.format(
       "h:mm:ss [<small>]A[</small>]"
     );
   }
@@ -55,6 +55,9 @@ function updateTime() {
 
 function updateCity(event) {
   let cityTimezone = event.target.value;
+  if (cityTimezone === "current") {
+    cityTimezone = moment.tz.guess();
+  }
   let cityName = cityTimezone.replace("_", " ").split("/")[1];
   let cityDateAndTime = moment().tz(cityTimezone);
   let citiesElement = document.querySelector(".cities");
