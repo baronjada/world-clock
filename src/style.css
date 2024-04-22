@@ -77,3 +77,7 @@ footer {
   color: rgba(0, 0, 0, 0.7);
   margin-bottom: 60px;
 }
+
+footer a {
+  color: rgb(13, 103, 108);
+}
